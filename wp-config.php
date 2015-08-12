@@ -17,7 +17,7 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 // Custom Content Directory
 // ========================
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
-define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
+if (!defined('WP_CONTENT_URL')) define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
 
 // ================================================
 // You almost certainly do not want to change these
@@ -60,8 +60,8 @@ define( 'WP_DEBUG_DISPLAY', false );
 // Debug mode
 // Debugging? Enable these. Can also enable them in local-config.php
 // =================================================================
-// define( 'SAVEQUERIES', true );
-// define( 'WP_DEBUG', true );
+define( 'SAVEQUERIES', true );
+define( 'WP_DEBUG', true );
 
 // ======================================
 // Load a Memcached config if we have one
